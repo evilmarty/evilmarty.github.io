@@ -1,0 +1,32 @@
+# Welcome to Amplified for Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Marty Zalega
+email: marty@zalega.me
+description: >
+  Yet another personal blog
+logo: "/assets/images/logo.jpg"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://marty.zalega.me" # the base hostname & protocol for your site
+paginate:	5 # The number of posts to show per page on your homepage
+
+name: "Marty Zalega"
+bio: >
+  Just your friendly neighborhood developer
+author_image: "/assets/images/author.jpg"
+twitter_username: evilmarty
+github_username:  evilmarty
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+
+gems:
+  - jekyll-paginate

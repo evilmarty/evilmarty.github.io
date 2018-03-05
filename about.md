@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-<amp-img width="600" height="300" layout="responsive" src="http://lorempixel.com/600/300/sports"></amp-img>
+<img width="600" height="300" layout="responsive" src="http://lorempixel.com/600/300/sports">
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac augue libero.
 Fusce ac tempor dolor. Ut est dui, gravida a consequat aliquet, fermentum

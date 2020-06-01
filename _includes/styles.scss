@@ -17,10 +17,6 @@ $grey-color:       #828282;
     }
 }
 
-amp-img {
-  background-color: grey;
-}
-
 .cf {
   @include clearfix;
 }
@@ -298,13 +294,19 @@ body {
       -webkit-hyphens: auto;
       -moz-hyphens: auto;
       hyphens: auto;
+
+      > img {
+        border-radius: 3vw;
+        box-shadow: 0 3vw 3vw rgba(0,0,0,0.1);
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
     }
     a {
       color: #333333;
       text-decoration: underline;
-    }
-    amp-img, amp-youtube {
-      margin-top: 30px;
     }
     figure {
       margin: 0;

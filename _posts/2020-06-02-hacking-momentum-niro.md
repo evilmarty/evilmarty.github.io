@@ -4,6 +4,10 @@ title: Hacking the Momentum Niro Wi-Fi Garage Door Controller
 tags: [ momentum, homeassistant, garage, camera, hacking ]
 ---
 
+```
+Update: Momentum released updated their firmware on June 25 2020 which removes access that was exposed in this article.
+```
+
 Momentum's [Niro Wi-Fi Garage Door Controller](https://momentumcam.com/products/garage-door-controller) is a web camera and garage controller in-one. Despite having a decent app to control the device my intention was to integrate it with [Home Assistant](https://home-assistant.io). Unfortunately there is no public API or integrations available at the time so I ended up hacking the device in order to do so.
 
 ![Garage camera and controls in Home Assistant](/assets/images/home-assistant-overview-garage-camera.png)

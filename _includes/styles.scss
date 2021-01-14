@@ -511,6 +511,11 @@ pre {
   }
 }
 
+abbr {
+  text-decoration-style: dotted;
+  text-decoration-line: underline;
+}
+
 .pagination .disabled {
     opacity: 0;
 }

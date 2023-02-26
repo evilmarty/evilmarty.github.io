@@ -1,0 +1,4 @@
+{% assign parts = include.username | split: "@" %}
+{% assign username = parts | slice: 1 %}
+{% assign server = parts | slice: 2 %}
+<a href="https://{{ server }}/@{{ username }}"><span class="icon icon--mastodon">{% include icon-mastodon.svg %}</span><span class="username">@{{ username }}@{{ server }}</span></a>

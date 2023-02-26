@@ -4,3 +4,4 @@ gem 'jekyll'
 gem 'jekyll-paginate'
 gem 'jekyll-compose', group: [:jekyll_plugins]
 gem 'liquid', '>= 4.0.4'
+gem 'webrick'

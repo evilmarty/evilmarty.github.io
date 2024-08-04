@@ -1,20 +1,19 @@
-@import 'bourbon/bourbon';
-@import 'syntax-highlighting';
+@import "bourbon/bourbon";
+@import "syntax-highlighting";
 
-$grey-color:       #828282;
+$grey-color: #828282;
 
 .icon {
+  > svg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
 
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
+    path {
+      fill: $grey-color;
     }
+  }
 }
 
 .cf {
@@ -23,8 +22,8 @@ $grey-color:       #828282;
 
 $rs: 16px;
 
-$font-serif: Georgia,Cambria,"Times New Roman",Times,'Lora', serif;
-$font-sans: "Helvetica Neue", 'Open Sans', Arial, Helvetica, sans-serif;
+$font-serif: Georgia, Cambria, "Times New Roman", Times, "Lora", serif;
+$font-sans: "Helvetica Neue", "Open Sans", Arial, Helvetica, sans-serif;
 
 @mixin respond-to($breakpoint) {
   @media only screen and (max-width: $breakpoint + px) {
@@ -68,22 +67,22 @@ body {
   }
 
   .page-links {
-      display: block;
-      position: absolute;
-      top: 10px;
-      right: $rs;
-      font-weight: 200;
-      font-style: normal;
-      font-size: 18px;
-      line-height: 30px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: $rs;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 30px;
 
-      a {
-        text-decoration: none;
-        color: #999999;
-        &:hover {
-          color: #333333;
-        }
+    a {
+      text-decoration: none;
+      color: #999999;
+      &:hover {
+        color: #333333;
       }
+    }
   }
 }
 
@@ -178,7 +177,7 @@ body {
   padding: 16px 0;
   span {
     color: #b3b3b1;
-    font-size: $rs / 8 * 5;
+    font-size: calc($rs / 8) * 5;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
@@ -187,7 +186,7 @@ body {
 .pagination {
   text-align: center;
   padding: $rs * 1 0 0;
-  font-size: $rs / 4 * 3;
+  font-size: calc($rs / 4) * 3;
   a {
     color: #999999;
     text-decoration: none;
@@ -202,7 +201,7 @@ body {
   padding: $rs * 3 0;
   width: 100%;
   max-width: 700px;
-  font-size: $rs / 4 * 3;
+  font-size: calc($rs / 4) * 3;
   text-align: center;
   color: #999999;
   line-height: $rs * 1.1;
@@ -257,10 +256,15 @@ body {
     width: 100%;
     font-family: $font-serif;
     color: #333333;
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: $font-sans;
     }
-    h3, h4, h5, h6 {
+    h3,
+    h4,
+    h5,
+    h6 {
       letter-spacing: -0.02em;
       font-weight: 700;
       font-style: normal;
@@ -273,7 +277,8 @@ body {
     h3 {
       font-size: 36px;
     }
-    h2, h1 {
+    h2,
+    h1 {
       letter-spacing: -0.02em;
       font-weight: 700;
       font-style: normal;
@@ -287,7 +292,7 @@ body {
       font-style: normal;
       font-size: 22px;
       line-height: 1.59;
-      letter-spacing: -.002em;
+      letter-spacing: -0.002em;
       margin-top: 30px;
       margin-bottom: 0;
       color: #333333;
@@ -297,7 +302,7 @@ body {
 
       > img {
         border-radius: 3vw;
-        box-shadow: 0 3vw 3vw rgba(0,0,0,0.1);
+        box-shadow: 0 3vw 3vw rgba(0, 0, 0, 0.1);
         display: block;
         width: 100%;
         max-width: 500px;
@@ -345,7 +350,8 @@ body {
         padding-bottom: 3px;
       }
     }
-    ul, ol {
+    ul,
+    ol {
       padding: 0 0 30px;
       margin: 0;
     }
@@ -488,7 +494,6 @@ body {
   }
 }
 
-
 pre,
 code {
   font-size: 15px;
@@ -517,20 +522,34 @@ abbr {
 }
 
 .pagination .disabled {
-    opacity: 0;
+  opacity: 0;
 }
 
 @-webkit-keyframes spincube {
-  from,to  { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-  16%      { -webkit-transform: rotateY(-90deg);                           }
-  33%      { -webkit-transform: rotateY(-90deg) rotateZ(90deg);            }
-  50%      { -webkit-transform: rotateY(-180deg) rotateZ(90deg);           }
-  66%      { -webkit-transform: rotateY(-270deg) rotateX(90deg);           }
-  83%      { -webkit-transform: rotateX(90deg);                            }
+  from,
+  to {
+    -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  16% {
+    -webkit-transform: rotateY(-90deg);
+  }
+  33% {
+    -webkit-transform: rotateY(-90deg) rotateZ(90deg);
+  }
+  50% {
+    -webkit-transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  66% {
+    -webkit-transform: rotateY(-270deg) rotateX(90deg);
+  }
+  83% {
+    -webkit-transform: rotateX(90deg);
+  }
 }
 
 @keyframes spincube {
-  from,to {
+  from,
+  to {
     -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     -ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);

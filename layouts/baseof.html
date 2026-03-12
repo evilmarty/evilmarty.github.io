@@ -7,18 +7,26 @@
   <title>{{ if and .Title (ne .Title .Site.Title) }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
   {{- $styles := resources.Get "css/main.css" | css.TailwindCSS -}}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{- range site.Menus.main -}}
+  <link rel="prefetch" href="{{ .URL }}">
+  {{- end -}}
 </head>
 
 <body class="min-h-screen bg-base-200 flex flex-col">
   {{- block "header" . -}}
   <header class="navbar">
-    <div class="container max-w-2xl flex flex-row flex-grow mx-auto p-4">
-      <div class="flex-1">
-        <a href="/" class="btn btn-ghost btn-square text-xl">
-          {{ with resources.Get "images/logo.svg" }}
-          <img alt="{{ $.Site.Title }}" src="{{ .RelPermalink }}" class="h-8 w-auto">
-          {{ end }}
+    <div class="container max-w-2xl flex flex-row flex-grow mx-auto items-center p-4">
+      <div class="flex-1 flex">
+        {{- with resources.Get "images/logo.svg" -}}
+        <a href="/" class="text-xl group">
+          <img alt="{{ $.Site.Title }}" src="{{ .RelPermalink }}"
+            class="h-8 w-auto transition-transform group-hover:scale-110">
         </a>
+        {{- else -}}
+        <a href="/" class="btn btn-ghost btn-square text-xl">
+          {{ $.Site.Title }}
+        </a>
+        {{- end -}}
       </div>
       <div class="flex-none">
         {{- with site.Menus.main -}}

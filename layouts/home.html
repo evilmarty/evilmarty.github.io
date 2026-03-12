@@ -35,7 +35,7 @@
         {{- range $link := . -}}
         <li>
           <div class="tooltip" data-tip="{{ $link.name }}">
-            <a href="{{ $link.url }}">
+            <a href="{{ $link.url }}" rel="external">
               {{- $image := print "images/" (strings.ToLower $link.name) ".svg" -}}
               {{- with resources.Get $image -}}
               <img alt="{{ $link.name }}" src="{{ .RelPermalink }}" class="size-6">

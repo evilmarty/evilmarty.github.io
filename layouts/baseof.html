@@ -51,7 +51,7 @@
             <a href="{{ $link.url }}">
               {{- $image := print "images/" (strings.ToLower $link.name) ".svg" -}}
               {{- with resources.Get $image -}}
-              <img alt="{{ $link.name }}" src="{{ $.RelPermalink }}" class="size-6">
+              <img alt="{{ $link.name }}" src="{{ .RelPermalink }}" class="size-6">
               {{- end -}}
             </a>
           </div>

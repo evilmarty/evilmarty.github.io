@@ -1,0 +1,15 @@
+{{- if .Type -}}
+{{- with transform.HighlightCodeBlock . -}}
+{{- if eq $.Type "shell" -}}
+<div class="mockup-code w-full">
+  {{- replace (replace .Inner "<span style=\"display:flex;\"><span>" "<pre class=\"not-prose\"><code>") "</span></span>"
+  "</code></pre>" |
+  safeHTML -}}
+</div>
+{{- else -}}
+<pre class="bg-neutral text-neutral-content p-4 rounded-lg overflow-auto my-6"><code>{{ .Inner }}</code></pre>
+{{- end -}}
+{{- end -}}
+{{- else -}}
+<pre class="bg-neutral text-neutral-content p-4 rounded-lg overflow-auto my-6"><code>{{ .Inner }}</code></pre>
+{{- end -}}

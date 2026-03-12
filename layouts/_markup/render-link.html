@@ -1,0 +1,6 @@
+{{- $u := urls.Parse .Destination -}}
+<a href="{{ .Destination | safeURL }}" class="link link-primary visited:link-secondary" {{- with .Title }}
+  title="{{ . }}" {{ end -}} {{- if $u.IsAbs }} rel="external" {{ end -}}>
+  {{- with .Text }}{{ . }}{{ end -}}
+</a>
+{{- /* chomp trailing newline */ -}}

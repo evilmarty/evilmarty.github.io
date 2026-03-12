@@ -1,0 +1,62 @@
+{{ define "main" }}
+<article class="card card-border mx-auto">
+  {{ range .Resources.Match "cover.*" | first 1 }}
+  <figure>
+    <img src="{{ . }}" alt="{{ .Title }}" class="w-full h-auto">
+  </figure>
+  {{ end }}
+  <div class="card-body">
+    <header class="mb-10 text-center">
+      <h1 class="card-title text-5xl font-extrabold mb-4 block">{{ .Title }}</h1>
+      <div class="text-base-content/60 font-medium">
+        <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      </div>
+      {{- with .GetTerms "tags" -}}
+      <ul class="space-x-2 flex justify-center mt-4">
+        {{- range . -}}
+        <li> <a href="{{ .RelPermalink }}" class="badge badge-neutral not-hover:badge-soft badge-xs">{{ .LinkTitle
+            }}</a></li>
+        {{- end -}}
+      </ul>
+      {{- end -}}
+    </header>
+
+    <div class="prose prose-neutral">
+      {{-
+      .Content
+      -}}</div>
+
+    <footer class="card-actions mt-12">
+      {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="group flex items-center gap-4 text-left">
+        <div class="btn btn-circle btn-ghost group-hover:bg-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-primary-content" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs uppercase tracking-widest text-base-content/50">Next</span>
+          <span class="font-bold group-hover:text-primary transition-colors text-ellipsis">{{ .Title }}</span>
+        </div>
+      </a>
+      {{ end }}
+
+      {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="group flex items-center gap-4 text-right ml-auto">
+        <div class="flex flex-col">
+          <span class="text-xs uppercase tracking-widest text-base-content/50">Previous</span>
+          <span class="font-bold group-hover:text-primary transition-colors text-ellipsis">{{ .Title }}</span>
+        </div>
+        <div class="btn btn-circle btn-ghost group-hover:bg-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:text-primary-content" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </a>
+      {{ end }}
+    </footer>
+  </div>
+</article>
+{{ end }}

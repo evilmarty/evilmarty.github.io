@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article class="card bg-base-100 shadow-xl mx-auto">
+  {{ range .Resources.Match "cover.*" | first 1 }}
+  <figure class="relative">
+    <img src="{{ . }}" alt="{{ $.Title }}" class="w-full h-auto">
+    <figcaption
+      class="absolute inset-x-0 bottom-0 px-6 py-3 flex items-center justify-start text-white z-10 bg-black/50">
+      {{ $.Title }}
+    </figcaption>
+  </figure>
+  {{ end }}
+  <div class="card-body">
+    <div class="prose prose-neutral">
+      {{-
+      .Content
+      -}}</div>
+
+    {{- with .GetTerms "tags" -}}
+    <ul class="space-x-2 flex mt-4">
+      {{- range . -}}
+      <li> <a href="{{ .RelPermalink }}" class="badge badge-neutral not-hover:badge-soft badge-xs">{{ .LinkTitle
+          }}</a></li>
+      {{- end -}}
+    </ul>
+    {{- end -}}
+
+    <footer class="card-actions mt-12">
+      {{- with .Params.github -}}
+      <div class="tooltip" data-tip="GitHub">
+        <a href="{{ . }}" rel="external" target="_blank" class="btn btn-circle btn-ghost">
+          {{- with resources.Get "images/github.svg" -}}
+          <img src="{{ .RelPermalink }}" alt="GitHub" class="size-6">
+          {{- else -}}
+          GitHub
+          {{- end -}}
+        </a>
+      </div>
+      {{- end -}}
+      {{- with .Params.url -}}
+      <a href="{{ . }}" rel="external" target="_blank" class="ml-auto btn btn-primary">View Project</a>
+      {{- end -}}
+    </footer>
+  </div>
+</article>
+{{ end }}

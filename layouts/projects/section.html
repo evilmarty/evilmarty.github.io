@@ -1,0 +1,19 @@
+{{- define "main" -}}
+<h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-4">
+  {{- range $page := .Pages -}}
+  <a href="{{ $page.RelPermalink }}" class="hover-3d group">
+    <figure class="relative rounded-box shadow-xl">
+      {{ range $page.Resources.Match "cover.*" | first 1 }}
+      <img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" class="aspect-3/2 md:h-[240px] lg:h-[160px] object-cover">
+      {{- end -}}
+      <figcaption
+        class="absolute inset-x-0 bottom-0 py-3 flex items-center justify-center text-white z-10 bg-black/50 transition-transform translate-y-full group-hover:translate-y-0">
+        {{
+        $page.Title }}</figcaption>
+    </figure>
+    {{- range 9 -}}<div></div>{{- end -}}
+  </a>
+  {{- end -}}
+</section>
+{{- end -}}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if and .Title (ne .Title .Site.Title) }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  {{- $styles := resources.Get "css/main.css" | css.TailwindCSS -}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+</head>
+
+<body class="min-h-screen bg-base-200 flex flex-col">
+  {{- block "header" . -}}
+  <header class="navbar">
+    <div class="container max-w-2xl flex flex-row flex-grow mx-auto p-4">
+      <div class="flex-1">
+        <a href="/" class="btn btn-ghost btn-square text-xl">
+          {{ with resources.Get "images/logo.svg" }}
+          <img alt="{{ $.Site.Title }}" src="{{ .RelPermalink }}" class="h-8 w-auto">
+          {{ end }}
+        </a>
+      </div>
+      <div class="flex-none">
+        {{- with site.Menus.main -}}
+        <ul class="menu menu-horizontal px-1">
+          {{- range . -}}
+          <li><a href="{{ .URL }}" class="{{ if $.IsMenuCurrent .Menu . }}menu-active{{ end }}">{{ .Name }}</a></li>
+          {{- end -}}
+        </ul>
+        {{- end -}}
+      </div>
+    </div>
+  </header>
+  {{- end -}}
+
+  <main class="container max-w-2xl mx-auto p-4 flex-grow">
+    {{- block "main" . -}}{{- end -}}
+  </main>
+
+  {{- block "footer" . -}}
+  <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+    <aside>
+      <p>© {{ now.Format "2006" }} - {{ .Site.Title }}</p>
+    </aside>
+    <nav>
+      {{- with hugo.Data.links -}}
+      <ul class="menu menu-horizontal mx-auto">
+        {{- range $link := . -}}
+        <li>
+          <div class="tooltip" data-tip="{{ $link.name }}">
+            <a href="{{ $link.url }}">
+              {{- $image := print "images/" (strings.ToLower $link.name) ".svg" -}}
+              {{- with resources.Get $image -}}
+              <img alt="{{ $link.name }}" src="{{ $.RelPermalink }}" class="size-6">
+              {{- end -}}
+            </a>
+          </div>
+        </li>
+        {{- end -}}
+      </ul>
+      {{- end -}}
+    </nav>
+  </footer>
+  {{- end -}}
+</body>
+
+</html>

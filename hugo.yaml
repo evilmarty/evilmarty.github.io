@@ -1,0 +1,14 @@
+baseURL: https://marty.zalega.me
+disablePathToLower: true
+languageCode: en-us
+title: Marty Zalega
+taxonomies:
+  tag: tags
+build:
+  cachebusters:
+    - source: "layouts/.*"
+      target: "css"
+security:
+  exec:
+    allow:
+      - tailwindcss

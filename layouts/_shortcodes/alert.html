@@ -1,0 +1,6 @@
+{{- $color := index (dict "" "" "info" "alert-info" "success" "alert-success" "warning" "alert-warning" "error"
+"alert-error")
+(.Get "color" | default "") -}}
+<div role="alert" class="alert {{ $color }} my-6">
+  <span>{{ markdownify .Inner }}</span>
+</div>

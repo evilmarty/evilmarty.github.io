@@ -1,0 +1,7 @@
+{{- with $x := .Get 0 | default "" -}}
+<div class="[&_.gist-data]:rounded-lg! [&_.gist-data]:shadow-xl! [&_.gist-meta]:bg-transparent!">
+  <script src="https://gist.github.com/{{ . }}.js"></script>
+</div>
+{{- else -}}
+{{- errorf "The %q shortcode requires an argument: see %s" .Name .Position }}
+{{- end -}}

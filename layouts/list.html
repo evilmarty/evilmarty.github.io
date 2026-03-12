@@ -1,0 +1,36 @@
+{{- define "main" -}}
+<h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
+{{ .Content }}
+<section class="space-y-6">
+  {{- range $i, $page := .Pages -}}
+  {{- if ne $i 0 -}}
+  <div class="divider"></div>
+  {{- end -}}
+  {{- with $page -}}
+  <a href="{{ .RelPermalink }}" class="card card-border hover:text-primary card-sm">
+    {{- with .Params.image -}}
+    <figure><img src="{{ . }}" alt="{{ .Title }}"></figure>
+    {{- end -}}
+    <div class="card-body px-0">
+      <h2 class="card-title text-2xl font-bold">{{ .Title }}</h2>
+      <time datetime="{{ .Date.Format " 2006-01-02" }}" class="text-sm text-base-content/60 font-medium mb-2">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
+      <div class="prose prose-neutral">
+        {{- .Plain | truncate 200 | htmlUnescape | safeHTML -}}
+      </div>
+      <div class="card-actions justify-between">
+        {{- with .GetTerms "tags" -}}
+        <ul class="space-x-1 inline-flex">
+          {{- range . -}}
+          <li class="badge badge-neutral badge-soft badge-xs">{{ .LinkTitle }}</li>
+          {{- end -}}
+        </ul>
+        {{- end -}}
+      </div>
+    </div>
+  </a>
+  {{- end -}}
+  {{- end -}}
+</section>
+{{- end -}}

@@ -1,0 +1,4 @@
+{{- $class := slice "" "text-3xl" "text-2xl" "text-xl" "text-lg" "text-md" "text-sm" -}}
+<h{{ .Level }} id="{{ .Anchor }}" class="{{ index $class .Level }}">
+  {{- .Text -}}
+</h{{ .Level }}>

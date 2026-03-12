@@ -2,8 +2,18 @@ name: Continuous Delivery
 on:
   push:
     branches: ["master"]
+    paths-ignore:
+      - AGENTS.md
+      - README.md
+      - LICENSE
+      - CNAME
   pull_request:
     branches: ["master"]
+    paths-ignore:
+      - AGENTS.md
+      - README.md
+      - LICENSE
+      - CNAME
   workflow_dispatch:
 permissions:
   contents: read

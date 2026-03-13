@@ -12,3 +12,6 @@ security:
   exec:
     allow:
       - tailwindcss
+sitemap:
+  disable: false
+  filename: sitemap.xml

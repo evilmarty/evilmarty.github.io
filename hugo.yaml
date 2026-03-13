@@ -2,6 +2,7 @@ baseURL: https://marty.zalega.me
 disablePathToLower: true
 languageCode: en-us
 title: Marty Zalega
+enableRobotsTXT: true
 taxonomies:
   tag: tags
 build:

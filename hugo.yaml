@@ -13,6 +13,7 @@ security:
   exec:
     allow:
       - tailwindcss
+      - node
 sitemap:
   disable: false
   filename: sitemap.xml

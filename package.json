@@ -15,7 +15,7 @@
     "@tailwindcss/cli": "^4.3.0",
     "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.5.0",
-    "daisyui": "^5.5.19",
+    "daisyui": "^5.5.20",
     "postcss": "^8.5.13",
     "tailwindcss": "^4.3.0"
   }

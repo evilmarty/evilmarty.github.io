@@ -1,6 +1,10 @@
 ---
 date: '2024-08-04T00:00:00Z'
 title: The birth of ILC
+tags:
+- golang
+- cli
+- utility
 ---
 
 I don't think I am the only one who creates a lot of ad-hoc Bash scripts and programs. Whether it be for work or for ourselves, they become part of our personal arsenal that assist with our tasks. When I begin creating a new Bash script, usually after noticing a pattern of frequent commands, I find myself beginning with the same boiler...

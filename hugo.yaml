@@ -1,6 +1,6 @@
 baseURL: https://marty.zalega.me
 disablePathToLower: true
-languageCode: en-us
+locale: en-us
 title: Marty Zalega
 enableRobotsTXT: true
 taxonomies:

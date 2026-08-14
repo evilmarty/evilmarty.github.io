@@ -7,6 +7,8 @@ params:
 tags:
   - react
   - typescript
+  - tailwind
+  - daisyui
   - web
 ---
 URL Mate is a React-based web application that provides helpful URL utilities, such as encoding, decoding, and parsing URL components.

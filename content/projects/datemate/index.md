@@ -7,6 +7,8 @@ params:
 tags:
   - react
   - typescript
+  - tailwind
+  - daisyui
   - web
 ---
 Date Mate is a simple date helper web application built with React, TypeScript, and Vite, designed to provide utility tools for date-related operations.

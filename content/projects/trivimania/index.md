@@ -5,6 +5,9 @@ params:
   url: "https://trivimania.fun/"
 tags:
   - elixir
+  - phoenix
+  - tailwind
+  - daisyui
   - web
   - game
 ---

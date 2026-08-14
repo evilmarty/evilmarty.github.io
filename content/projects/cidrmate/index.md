@@ -7,6 +7,8 @@ params:
 tags:
   - react
   - typescript
+  - tailwind
+  - daisyui
   - web
 ---
 CIDR Mate is a React-based CIDR calculator web application designed to help users calculate and visualize IP address ranges and network masks.

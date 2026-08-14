@@ -5,6 +5,9 @@ params:
   url: "https://zalevent.com/"
 tags:
   - elixir
+  - phoenix
+  - tailwind
+  - daisyui
   - web
   - event-management
 ---

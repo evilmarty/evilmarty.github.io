@@ -17,7 +17,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "autoprefixer": "^10.6.2",
     "daisyui": "^5.7.50",
-    "postcss": "^8.5.28",
+    "postcss": "^8.5.32",
     "sharp": "^0.35.5",
     "tailwindcss": "^4.3.2"
   }
